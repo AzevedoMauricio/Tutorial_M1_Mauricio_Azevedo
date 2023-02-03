@@ -1,9 +1,13 @@
 extends Node # instancia a classe Node2D
 
+# indica se está se jogando o jogo (quando o valor é 1) ou não (quando o valor é 0)
 var status = 1
+# indica a pontuação do usuário
 var vscore = 0
-var x = 1.5 
-var y = 1.5 
+# indica a velocidade horizontal do dragão (quanto maior, mais rápido)
+var x = 5
+# indica a gravidade que atua sobre o dragão
+var y = 1.5
 
 # executa essa função ao carregar o jogo
 func _ready():
