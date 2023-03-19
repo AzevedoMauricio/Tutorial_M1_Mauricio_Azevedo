@@ -108,6 +108,7 @@ func verify_answer(answer_boolean):
 	if answer_boolean:
 		if Global.level == 10:
 			get_tree().change_scene("res://scenes/final.tscn")
+			return
 			
 		Global.level += 1
 		get_tree().reload_current_scene()
