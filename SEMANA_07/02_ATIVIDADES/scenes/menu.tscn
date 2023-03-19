@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/Rubik_Iso/RubikIso-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://fonts/Fredoka/Fredoka-VariableFont_wdth,wght.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Node2D
+
+func _on_creditos_button_pressed():
+	get_tree().change_scene(\"res://scenes/question.tscn\")
+"
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 3 )
+
+[node name="menu" type="Node2D"]
+script = SubResource( 3 )
+
+[node name="background" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="title" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 390.5
+margin_top = 177.0
+margin_right = 633.5
+margin_bottom = 261.0
+custom_fonts/font = SubResource( 1 )
+text = "Sério?"
+
+[node name="creditos_button" type="Button" parent="."]
+margin_left = 362.0
+margin_top = 325.0
+margin_right = 662.0
+margin_bottom = 400.0
+custom_fonts/font = SubResource( 2 )
+text = "Play"
+
+[connection signal="pressed" from="creditos_button" to="." method="_on_creditos_button_pressed"]

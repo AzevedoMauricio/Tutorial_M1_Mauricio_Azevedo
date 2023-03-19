@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/Rubik_Iso/RubikIso-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/Fredoka/Fredoka-VariableFont_wdth,wght.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Node2D
+
+func _on_restart_pressed():
+	get_tree().change_scene(\"res://scenes/menu.tscn\")
+"
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="game_over" type="Node2D"]
+script = SubResource( 3 )
+
+[node name="background" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="advice" type="Label" parent="."]
+margin_left = 320.0
+margin_top = 203.0
+margin_right = 701.0
+margin_bottom = 263.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Eita como erra"
+
+[node name="restart" type="Button" parent="."]
+margin_left = 535.0
+margin_top = 347.0
+margin_right = 835.0
+margin_bottom = 422.0
+custom_fonts/font = SubResource( 2 )
+text = "Recomeçar"
+
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]
